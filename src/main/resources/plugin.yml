@@ -1,0 +1,9 @@
+name: levels
+description: $description
+version: '${version}'
+
+main: com.ethancubes.levels.Levels
+api-version: '26.2'
+load: POSTWORLD
+
+authors: [ EthanCubes ]

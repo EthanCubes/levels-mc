@@ -9,7 +9,7 @@ public final class Levels extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        System.out.println("Hello!");
+        System.out.println("Safeguards in place!");
 
         // Event listeners that help configure the amount of hearts the player gets
 

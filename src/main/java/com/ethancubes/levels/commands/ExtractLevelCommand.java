@@ -29,7 +29,11 @@ public class ExtractLevelCommand {
             return 0;
         }
 
-        // Check if the user has 10 xp levels currently
+        if (player.getLevel() < 10) {
+            source.getSender().sendMessage(Component.text("Sorry! Not enough XP levels", NamedTextColor.YELLOW));
+            return 0;
+        }
+
         player.give(ItemStack.of(Material.EXPERIENCE_BOTTLE)); // lets hope this doesn't give an entire stack of bottles
         player.give(ItemStack.of(Material.EXPERIENCE_BOTTLE));
         player.give(ItemStack.of(Material.EXPERIENCE_BOTTLE));
@@ -45,7 +49,11 @@ public class ExtractLevelCommand {
         }
 
         // Check if the user has at least 10 xp levels currently, and 9 after they extract the xp
-        // somehow give the user xp bottles, amount
+        if (player.getLevel() - amount < 9) {
+            source.getSender().sendMessage(Component.text("Sorry! Not enough XP levels", NamedTextColor.YELLOW));
+            return 0;
+        }
+
         for (int i = 0; i < amount; i++) {
             player.give(ItemStack.of(Material.EXPERIENCE_BOTTLE));
             player.give(ItemStack.of(Material.EXPERIENCE_BOTTLE));

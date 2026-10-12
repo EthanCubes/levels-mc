@@ -1,8 +1,5 @@
 package com.ethancubes.levels.listeners;
 
-// import org.bukkit.attribute.AttributeInstance;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,6 +20,5 @@ public class XPChangeListener implements Listener {
         int player_health = 20 + 2 * extra_hearts;
 
         player.setMaxHealth(player_health); // Deprecated but I seriously have no idea how to make anything better
-        player.sendMessage(Component.text("Level changes!", NamedTextColor.BLUE));
     }
 }

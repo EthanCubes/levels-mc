@@ -18,10 +18,9 @@ public class XPChangeListener implements Listener {
             return;
         }
 
-        int player_health = 20;
-        for (int i = player_level; i > 10; i -= 10) {
-            player_health += 2;
-        }
+        int extra_xp = player_level % 10;
+        int extra_hearts = (player_level - extra_xp) / 10;
+        int player_health = 20 + 2 * extra_hearts;
 
         player.setMaxHealth(player_health); // Deprecated but I seriously have no idea how to make anything better
         player.sendMessage(Component.text("Level changes!", NamedTextColor.BLUE));

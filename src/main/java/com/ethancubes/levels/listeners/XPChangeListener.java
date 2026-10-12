@@ -12,6 +12,7 @@ public class XPChangeListener implements Listener {
         int player_level = player.getLevel();
 
         if (player_level < 10) {
+            player.resetMaxHealth();
             return;
         }
 

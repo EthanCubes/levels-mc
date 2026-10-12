@@ -1,6 +1,7 @@
 package com.ethancubes.levels;
 
 import com.ethancubes.levels.commands.ExtractLevelCommand;
+import com.ethancubes.levels.commands.RefreshLevelCommand;
 import com.ethancubes.levels.listeners.PlayerDeathListener;
 import com.ethancubes.levels.listeners.XPChangeListener;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
@@ -23,6 +24,11 @@ public final class Levels extends JavaPlugin {
         });
 
         // Imports the /transfer command
+
+        // Imports the /refresh command
+        getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, event -> {
+            event.registrar().register(RefreshLevelCommand.create());
+        });
     }
 
     @Override

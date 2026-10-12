@@ -20,6 +20,10 @@ public class XPChangeListener implements Listener {
         int extra_hearts = (player_level - extra_xp) / 10;
         int player_health = 20 + 2 * extra_hearts;
 
+        if (player_health > 40) {
+            player_health = 40;
+        }
+
         player.setMaxHealth(player_health); // Deprecated but I seriously have no idea how to make anything better
     }
 }

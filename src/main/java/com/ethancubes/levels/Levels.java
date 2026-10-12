@@ -23,8 +23,6 @@ public final class Levels extends JavaPlugin {
             event.registrar().register(ExtractLevelCommand.create());
         });
 
-        // Imports the /transfer command
-
         // Imports the /refresh command
         getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, event -> {
             event.registrar().register(RefreshLevelCommand.create());

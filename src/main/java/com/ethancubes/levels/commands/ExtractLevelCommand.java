@@ -15,7 +15,7 @@ public class ExtractLevelCommand {
     public static LiteralCommandNode<CommandSourceStack> create() {
         return Commands.literal("extract")
                 .executes(context -> extract_one_level(context.getSource()))
-                .then(Commands.argument("amount", IntegerArgumentType.integer())
+                .then(Commands.argument("amount", IntegerArgumentType.integer(1, 20))
                         .executes(context -> {
                             return extract_levels(context.getSource(), IntegerArgumentType.getInteger(context, "amount"));
                         }))
@@ -29,10 +29,15 @@ public class ExtractLevelCommand {
             return 0;
         }
 
-        if (player.getLevel() < 10) {
+        int player_level = player.getLevel();
+
+        if (player_level < 10) {
             source.getSender().sendMessage(Component.text("Sorry! Not enough XP levels", NamedTextColor.YELLOW));
             return 0;
         }
+
+        player.setExp(0); // done to prevent overflow and stuff, which allows for abuse of the system (maybe)
+        player.setLevel(player_level - 1);
 
         player.give(ItemStack.of(Material.EXPERIENCE_BOTTLE)); // lets hope this doesn't give an entire stack of bottles
         player.give(ItemStack.of(Material.EXPERIENCE_BOTTLE));
@@ -48,11 +53,17 @@ public class ExtractLevelCommand {
             return 0;
         }
 
+        int player_level = player.getLevel();
+
         // Check if the user has at least 10 xp levels currently, and 9 after they extract the xp
-        if (player.getLevel() - amount < 9) {
+        // if player is on level 22, and wants to extract 13, this should work
+        if (player_level - amount < 9) {
             source.getSender().sendMessage(Component.text("Sorry! Not enough XP levels", NamedTextColor.YELLOW));
             return 0;
         }
+
+        player.setExp(0); // done to prevent overflow and stuff, which allows for abuse of the system (maybe)
+        player.setLevel(player_level - amount);
 
         for (int i = 0; i < amount; i++) {
             player.give(ItemStack.of(Material.EXPERIENCE_BOTTLE));

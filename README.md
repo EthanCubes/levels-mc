@@ -1,6 +1,10 @@
 # Levels MC
 Plugin for PaperMC Minecraft servers that overhauls XP levels
 
+## Download
+- Download from GitHub Releases [here]()
+- Download from Modrinth [here]()
+
 ## Features
 - Every 10 levels, you gain an extra heart, up to 20 hearts by default
 - Commands to extract XP, 250XP per 10 levels you sacrifice above level 20 by default

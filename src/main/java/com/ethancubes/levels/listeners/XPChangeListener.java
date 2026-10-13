@@ -10,6 +10,6 @@ import static com.ethancubes.levels.Global.refresh_xp_hearts;
 public class XPChangeListener implements Listener {
     @EventHandler
     public void on_xp_change(PlayerExpChangeEvent event) {
-        refresh_xp_hearts(event.getPlayer());
+        refresh_xp_hearts(event.getPlayer(), false);
     }
 }

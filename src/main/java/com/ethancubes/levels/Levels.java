@@ -11,7 +11,6 @@ public final class Levels extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        System.out.println("The plugin has loaded! yay!");
         // Plugin startup logic
 
         // Event listeners that help configure the amount of hearts the player gets

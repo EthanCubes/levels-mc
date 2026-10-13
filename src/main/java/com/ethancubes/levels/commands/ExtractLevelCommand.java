@@ -11,12 +11,15 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import static com.ethancubes.levels.Global.refresh_xp_hearts;
+
 public class ExtractLevelCommand {
     public static LiteralCommandNode<CommandSourceStack> create() {
         return Commands.literal("extract")
                 .executes(context -> extract_one_level(context.getSource()))
                 .then(Commands.argument("amount", IntegerArgumentType.integer(1, 20))
                         .executes(context -> {
+                            refresh_xp_hearts(context.getSource().getPlayerOrThrow());
                             return extract_levels(context.getSource(), IntegerArgumentType.getInteger(context, "amount"));
                         }))
                 .build();
@@ -25,7 +28,7 @@ public class ExtractLevelCommand {
     private static int extract_one_level(CommandSourceStack source) {
         // ensure that a player is typing the command
         if (!(source.getExecutor() instanceof Player player)) {
-            source.getSender().sendMessage(Component.text("Usage: /extract <int>", NamedTextColor.RED));
+            source.getSender().sendMessage(Component.text("Only a player can run this command", NamedTextColor.RED));
             return 0;
         }
 

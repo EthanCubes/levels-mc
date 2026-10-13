@@ -5,25 +5,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerExpChangeEvent;
 
+import static com.ethancubes.levels.Global.refresh_xp_hearts;
+
 public class XPChangeListener implements Listener {
     @EventHandler
     public void on_xp_change(PlayerExpChangeEvent event) {
-        Player player = event.getPlayer();
-        int player_level = player.getLevel();
-
-        if (player_level < 10) {
-            player.resetMaxHealth();
-            return;
-        }
-
-        int extra_xp = player_level % 10;
-        int extra_hearts = (player_level - extra_xp) / 10;
-        int player_health = 20 + 2 * extra_hearts;
-
-        if (player_health > 40) {
-            player_health = 40;
-        }
-
-        player.setMaxHealth(player_health); // Deprecated but I seriously have no idea how to make anything better
+        refresh_xp_hearts(event.getPlayer());
     }
 }

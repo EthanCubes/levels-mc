@@ -7,9 +7,12 @@ import org.bukkit.entity.Player;
 public class Global {
     public static void refresh_xp_hearts(Player player, boolean is_command) {
         int player_level = player.getLevel();
+        int current_player_max_health = (int) Math.floor(player.getMaxHealth());
 
         if (player_level < 10) {
-            player.resetMaxHealth();
+            if (current_player_max_health != 20) {
+                player.resetMaxHealth();
+            }
             return;
         }
 
@@ -21,13 +24,13 @@ public class Global {
             player_health = 40;
         }
 
-        player.setMaxHealth(player_health); // Deprecated but I seriously have no idea how to make anything better
+        if (current_player_max_health != player_health) {
+            player.setMaxHealth(player_health); // Deprecated but I seriously have no idea how to make anything better
+        }
 
         // ensures that the user isn't pinged every time they gain xp
         if (is_command) {
             player.sendMessage(Component.text("Refresh successfully completed", NamedTextColor.YELLOW));
         }
-
-        return;
     }
 }

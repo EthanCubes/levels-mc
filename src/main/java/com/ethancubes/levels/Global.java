@@ -1,14 +1,11 @@
 package com.ethancubes.levels;
 
-import io.papermc.paper.command.brigadier.CommandSourceStack;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.entity.Player;
 
 public class Global {
-    public static void refresh_xp_hearts(Player player) {
-        player.sendMessage(Component.text("Refresh successfully completed", NamedTextColor.YELLOW));
-
+    public static void refresh_xp_hearts(Player player, boolean is_command) {
         int player_level = player.getLevel();
 
         if (player_level < 10) {
@@ -25,6 +22,11 @@ public class Global {
         }
 
         player.setMaxHealth(player_health); // Deprecated but I seriously have no idea how to make anything better
+
+        // ensures that the user isn't pinged every time they gain xp
+        if (is_command) {
+            player.sendMessage(Component.text("Refresh successfully completed", NamedTextColor.YELLOW));
+        }
 
         return;
     }

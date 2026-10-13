@@ -18,7 +18,7 @@ public class RefreshLevelCommand {
                         context.getSource().getSender().sendMessage(Component.text("/refresh can only be used by a player", NamedTextColor.RED));
                         return 0;
                     }
-                    refresh_xp_hearts(player);
+                    refresh_xp_hearts(player, true);
                     return Command.SINGLE_SUCCESS;
                 })
                 .build();

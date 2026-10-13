@@ -19,7 +19,7 @@ public class ExtractLevelCommand {
                 .executes(context -> extract_one_level(context.getSource()))
                 .then(Commands.argument("amount", IntegerArgumentType.integer(1, 20))
                         .executes(context -> {
-                            refresh_xp_hearts(context.getSource().getPlayerOrThrow());
+                            refresh_xp_hearts(context.getSource().getPlayerOrThrow(), false);
                             return extract_levels(context.getSource(), IntegerArgumentType.getInteger(context, "amount"));
                         }))
                 .build();

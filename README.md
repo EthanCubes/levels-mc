@@ -21,6 +21,11 @@ Plugin for PaperMC Minecraft servers that overhauls XP levels
 - The heart count should update automatically, but if it's stuck, players can run `/refresh` to update their heart count
 - Players can run `/extract` to extract XP levels to XP bottles, at an exchange rate of 3 bottles per level. This can only be done when the player is at level 10 or higher, and the extraction doesn't bring the player to below 9 levels
 
+## Gallery
+![screenshot of minecraft](screenshots/1.png)
+![screenshot of minecraft](screenshots/2.png)
+![screenshot of minecraft](screenshots/3.png)
+
 ## Credits
 - [Kody Simpson's PaperMC Plugin Guide](https://www.youtube.com/playlist?list=PLZb14wOLO7NA)
 - [PaperMC Documentation](https://docs.papermc.io/)

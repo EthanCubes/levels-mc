@@ -14,7 +14,7 @@ Plugin for PaperMC Minecraft servers that overhauls XP levels
 1. Have a PaperMC server set up. For guidance on setting up the server, go to the [PaperMC Documentation](https://docs.papermc.io/paper/getting-started/)
 2. Download the plugin from one of the [Download Links](#download) above
 3. Put the plugin in the plugins folder
-4. This plugin only works client side. 300 downloads and I'll make a client-side mod.
+4. This plugin only works server side. 300 downloads and I'll make a client-side mod.
 
 ## Usage Tutorial
 - When a player gets to 10 levels, they gain an extra heart. This continues every 10 levels until the player reaches the maximum, which is 20 by default
